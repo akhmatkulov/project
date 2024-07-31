@@ -13,20 +13,26 @@ public class UserService {
     Users users = new Users();
 
 
-    public boolean register(User user) {
+    public User register(User user) {
        read();
        for (User user1: users.getUsers()){
            if (user1.getUserName().equals(user.getUserName())){
-               return false;
+               return null;
            }
        }
        users.getUsers().add(user);
        write();
-       return true;
+       return user;
     }
 
-    public boolean login(String username, String password) {
-      return true;
+    public User login(String username, String password) {
+        read();
+        for (User user1: users.getUsers()){
+            if (user1.getUserName().equals(username) && user1.getPassword().equals(password)){
+                return user1;
+            }
+        }
+      return null;
     }
 
     public void write() {

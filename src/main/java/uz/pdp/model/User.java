@@ -11,7 +11,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    @JacksonXmlProperty(isAttribute = true)
     private  UUID id;
     private String firstName;
     private  String lastName;
